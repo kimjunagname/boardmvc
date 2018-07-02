@@ -1,0 +1,157 @@
+project : boardmvc (/boardmvc)
+  - src
+    - com.kitri.action
+      Action.java (I)
+      
+     - com.kitri.action.admin.board
+      BoardMenuAction.java
+      MakeCategoryAction.java
+      MakeBoardAction.java
+      
+      ModifyCategoryAction.java
+      DeleteCategoryAction.java
+      ModifyBoardAction.java
+      DeleteBoardAction.java
+  
+  	- com.kitri.action.album
+  	  AlbumListAction.java
+  	  AlbumWriteAction.java
+  	  AlbumViewAction.java
+  	  
+  	  AlbumModifyAction.java
+  	  AlbumDeleteAction.java
+  	
+  	- com.kitri.action.bbs
+  	  BbsListAction.java
+  	  BbsWriteAction.java
+  	  BbsViewAction.java
+  	  
+  	  BbsModifyAction.java
+  	  BbsDeleteAction.java
+  	
+  	- com.kitri.action.board
+  	  BoardListAction.java
+  	  BoardWriteAction.java
+  	  BoardViewAction.java
+  	  
+  	  BoardModifyAction.java
+  	  BoardDeleteAction.java
+  	
+  	- com.kitri.action.reboard
+  	  ReboardListAction.java
+  	  ReboardWriteAction.java
+  	  ReboardViewAction.java
+  	  ReboardReplyAction.java
+  	  
+  	  ReboardModifyAction.java
+  	  ReboardDeleteAction.java
+  	
+  	- com.kitri.action.memo
+  	  MemoListAction.java
+  	  MemoWriteAction.java
+  	  
+  	  MemoModifyAction.java
+  	  MemoDeleteAction.java
+  	
+  	- com.kitri.factory
+  	  BoardAdminActionFactory.java
+  	  BoardActionFactory.java
+  	
+    - com.kitri.admin.board.controller
+      BoardAdminController.java (/boardadmin)
+    
+    - com.kitri.admin.board.model
+      BoardTypeDto.java
+      CategoryDto.java
+      BoardListDto.java
+    
+    - com.kitri.admin.board.service
+      BoardAdminService.java (I)
+      BoardAdminServiceImpl.java
+    
+    - com.kitri.admin.board.dao
+      BoardAdminDao.java (I)
+      BoardAdminDaoImpl.java
+  
+    - com.kitri.board.controller
+      AlbumController.java		(/album)
+      BbsController.java		(/bbs)
+      BoardController.java		(/board)
+      ReboardController.java	(/reboard)
+      MemoController.java		(/memo)
+    
+    - com.kitri.board.model
+      BoardDto.java
+      AlbumDto.java
+      BbsDto.java
+      ReboardDto.java
+      MemoDto.java
+    
+    - com.kitri.board.service
+      AlbumService.java (I)
+      AlbumServiceImpl.java
+      BbsService.java (I)
+      BbsServiceImpl.java
+      BoardService.java (I)
+      BoardServiceImpl.java
+      ReboardService.java (I)
+      ReboardServiceImpl.java
+      MemoService.java (I)
+      MemoServiceImpl.java
+    
+    - com.kitri.board.dao
+      AlbumDao.java (I)
+      AlbumDaoImpl.java
+      BbsDao.java (I)
+      BbsDaoImpl.java
+      BoardDao.java (I)
+      BoardDaoImpl.java
+      ReboardDao.java (I)
+      ReboardDaoImpl.java
+      MemoDao.java (I)
+      MemoDaoImpl.java
+      
+    - com.kitri.common.service
+      CommonService.java (I)
+      CommonServiceImpl.java
+      
+    - com.kitri.common.dao
+      CommonDao.java (I)
+      CommonDaoImpl.java
+      
+    - com.kitri.util
+      KitriConstance.java
+      ParameterCheck.java
+      PageMove.java
+      PageNavigation.java
+    
+    - com.kitri.util.db
+      DBConnection.java
+      DBClose.java
+  
+  
+  
+  - webContent
+  	- commons (공통)
+  	  - template : top.jsp, main.jsp, bottom.jsp
+  	- admin
+  	  - board
+  	    - boardmenu.jsp (게시판목록 : 왼쪽 메뉴부분)
+  	    - makecategory.jsp
+  	    - makeboard.jsp
+    - album (앨범게시판)
+    - bbs (자료실)
+    - board (일반게시판형식)
+    - reboard (답변게시판)
+  
+    - css : style sheet (*.css)
+    - js : javascript (*.js)
+    - img : jpg, gif, png, ... 
+    - META-INF : context.xml (Connection Polling setting)
+    - WEB-INF
+      - lib : *.jar
+      
+
+      
+      
+      
