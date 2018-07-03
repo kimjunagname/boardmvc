@@ -51,6 +51,15 @@ public class ReboardModifyAction implements Action {
 			//path = "/reboard/view.jsp?seq=" + seq + "&";
 			path = "/reboard/modifyok.jsp?";
 			
+			//Reboard reboardDto = ReboardServiceImple
+			//request.setAttribut("article", reboardDto);
+			//path = "/revoard/view.jsp"
+			//
+			//path = "/reboard?act=viewarticle"
+			//service >> 리다렉트
+			
+			
+			
 		}else {
 			path = "/reboard/modifyfail.jsp?";
 		}

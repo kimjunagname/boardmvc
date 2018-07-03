@@ -65,6 +65,34 @@ public class ReboardController extends HttpServlet {
 				path += queryString;
 				PageMove.forward(request, response, path);
 			
+			} else if("mvreply".equals(act)) {
+				//답변형 게시판 시작
+				//membermvc - boardmvc 차이점 : 서비스, dao는 그대로, 
+				//단, controller에서 기능을 엑션클래스가 많아지고, else if에 길이가 늘어나는 문제점
+				//스프링은 class 대신 메소드로 호출 하고, else if대신 메소드화
+				
+				path = BoardActionFactory.getReboardMoveReplyAction().execute(request, response);
+				path += queryString;
+				PageMove.forward(request, response, path);
+			
+			
+			}else if("".equals(act)) {
+				
+				
+			} else if("".equals(act)) {
+				
+			} else if("".equals(act)) {
+				
+			} else if("".equals(act)) {
+				
+			} else if("".equals(act)) {
+				
+			} else if("".equals(act)) {
+				
+			} else if("".equals(act)) {
+				
+			} else if("".equals(act)) {
+				
 			} else if("".equals(act)) {
 				
 			} 

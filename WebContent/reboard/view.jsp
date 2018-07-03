@@ -85,6 +85,18 @@ function deleteArticle() {
 	//reboard 삭제 > board 삭제
 	//conn.autocommit = fail / commit / catch roolbark
 }
+//현재 글번호를 가져간다
+function moveReply(seq) {
+	document.getElementById("act").value = "mvreply";
+	document.getElementById("bcode").value = "${bcode}";
+	document.getElementById("pg").value = '1';
+	document.getElementById("key").value = "";
+	document.getElementById("word").value = "";
+	document.getElementById("seq").value = seq;
+	
+	document.commonform.action = "${root}/reboard";
+	document.commonform.submit();
+}
 </script>
 <!-- title -->
 <table width="100%" cellpadding="0" cellspacing="0" border="0">
@@ -106,7 +118,7 @@ function deleteArticle() {
 		<td valign="bottom" nowrap>
 			<a href="javascript:moveWrite();">
 			<img src="${root}/img/board/btn_write_01.gif" width="64" height="22" border="0" align="absmiddle" alt="글쓰기"></a> 
-			<a href="javascript:check_reply();">
+			<a href="javascript:moveReply('${article.seq}');">
 			<img src="${root}/img/board/btn_reply.gif" width="40" height="22" border="0" align="absmiddle" alt="답글"></a>
 			
 		<c:if test="${article.id == userInfo.id}">
@@ -201,7 +213,7 @@ function deleteArticle() {
 			<a href="javascript:moveWrite();">
 			<img src="${root}/img/board/btn_write_01.gif" width="64" height="22" border="0" align="absmiddle" alt="글쓰기"></a> 
 			
-			<a href="javascript:check_reply();">
+			<a href="javascript:moveReply('${article.seq}');">
 			<img src="${root}/img/board/btn_reply.gif" width="40" height="22" border="0" align="absmiddle" alt="답글"></a>
 		</td>
 		

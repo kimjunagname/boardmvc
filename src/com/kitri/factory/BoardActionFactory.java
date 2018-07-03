@@ -12,6 +12,7 @@ public class BoardActionFactory {
 	private static Action reboardMoveModifyAction;
 	private static Action reboardDeleteAction;
 	private static Action reboardModifyAction;
+	private static Action reboardMoveReplyAction;
 	
 	static {
 		reboardWriteAction = ReboardWriteAction.getReboardWriteAction();
@@ -21,7 +22,9 @@ public class BoardActionFactory {
 		reboardMoveModifyAction = ReboardMoveModifyAction.getReboardMoveModifyAction();
 		reboardModifyAction = ReboardModifyAction.getReboardModifyAction();
 		reboardDeleteAction = ReboardDeleteAction.getReboardDeleteAction();
+		reboardMoveReplyAction = ReboardMoveReplyAction.getReboardMoveReplyAction();
 	}
+
 
 	public static Action getReboardWriteAction() {
 		return reboardWriteAction;
@@ -49,6 +52,10 @@ public class BoardActionFactory {
 	
 	public static Action getReboardModifyAction() {
 		return reboardModifyAction;
+	}
+	
+	public static Action getReboardMoveReplyAction() {
+		return reboardMoveReplyAction;
 	}
 	
 }

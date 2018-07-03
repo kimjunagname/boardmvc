@@ -61,16 +61,15 @@ public class ReboardServiceImpl implements ReboardService {
 	@Override
 	public ReboardDto getArticle(int seq) {
 		System.out.println("getArticle" + seq);
-		ReboardDto reboardDto = ReboardDaoImpl.getReboardDao().viewArticle(seq);
-		if(reboardDto != null) {
-			reboardDto.setContent(reboardDto.getContent().replaceAll("\n", "<br>"));
-			
-			System.out.println("service getSeq>>>>>>> " + reboardDto.getSeq());
-			System.out.println("service getName>>>>>>> " + reboardDto.getName());
-			System.out.println("service getContent>>>>>>> " + reboardDto.getContent());
-			System.out.println("service getSubject>>>>>>> " + reboardDto.getSubject());
-		}
-		return reboardDto;
+		//ReboardDto reboardDto = ReboardDaoImpl.getReboardDao().viewArticle(seq);
+		//if(reboardDto != null) {
+		//	reboardDto.setContent(reboardDto.getContent().replaceAll("\n", "<br>"));
+		//	System.out.println("service getSeq>>>>>>> " + reboardDto.getSeq());
+		//	System.out.println("service getName>>>>>>> " + reboardDto.getName());
+		//	System.out.println("service getContent>>>>>>> " + reboardDto.getContent());
+		//	System.out.println("service getSubject>>>>>>> " + reboardDto.getSubject());
+		//}
+		return ReboardDaoImpl.getReboardDao().viewArticle(seq);
 	}
 
 	//글수정 > 컨트롤러 > 액션(mvmodify) > 서비스(여기 - getArticle(int seq)) > DAO > modify.jsp > 이동
