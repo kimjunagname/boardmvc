@@ -95,7 +95,8 @@ public class PageNavigation {
 		}
 		tmpNavigator.append("  \n</td>\n");
 		tmpNavigator.append("  <td style='padding: 0 5 0 5'>\n");
-		tmpNavigator.append("   <table cellpadding='0' cellspacing='0' border='0'>\n");
+		tmpNavigator.append("   <table cellpadding='5' cellspacing='0' border='0'>\n");
+		//cellpadding 5∑Œ«œ∏È ∆‰¿Ã¬° √≥∏Æµ 
 		tmpNavigator.append("    <tr>\n");
 		tmpNavigator.append("     <td width='1' nowrap><img src='" + root + "/img/board/n_tab.gif' width='1'");
 		tmpNavigator.append(" height='11' border='0' align='absmiddle'><br>");

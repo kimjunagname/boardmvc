@@ -1,0 +1,223 @@
+
+#oz-shadow {
+	width:100%;
+	position:absolute;
+	left:0;
+	top:0;
+}
+
+.oz-shadow-bg {
+	width:100%;
+	position:absolute;
+	left:0;
+	background-color:#000000;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)"; 
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=20); 
+	-moz-opacity:.2;
+	opacity:.2
+}
+
+#oz-iframe {
+	width:100%;
+	position:absolute;
+	left:0;
+	top:0;
+	display:none;	
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"; 
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0); 
+	-moz-opacity:.0;
+	opacity:.0	
+}
+
+.w-input-txt {
+	font-family:verdana;
+	font-size:13px;
+	height:22px;
+	line-height:18px;
+	vertical-align:middle;
+	padding: 1px 3px;	
+	border: 1px solid #B5B8C8;
+}
+.w-input-txt-o {
+	font-family:verdana;
+	font-size:13px;
+	height:22px;
+	line-height:18px;
+	vertical-align:middle;
+	padding: 1px 3px;
+	border: 1px solid #6699BB;
+}
+
+.w-box {
+	filter:alpha(opacity=90);-moz-opacity:0.9;	
+}
+
+.w-box-tm-txt {
+	font-size:13px;
+	padding-left: 5px;
+	font-weight: bold;
+	color: #15429F;
+}
+.w-box-mm {	
+	padding-top: 5px;
+	padding-bottom: 5px;
+	text-align: center;
+	background-color: #C6D7EB;
+}
+.w-box-mm-txt {	
+	font-size:13px;
+	text-align: left;
+	color:#003366;	
+}
+.w-box-close {
+	width: 11px;
+	text-align: right;
+	cursor:pointer;	
+}
+.w-box-close-o {
+	width: 11px;
+	text-align: right;
+	cursor:pointer;
+}
+.w-box-tl {
+	width: 8px;
+}
+.w-box-tm {
+	cursor: move;
+}
+.w-box-tr {
+	width: 8px;
+}
+
+.w-box-bl {
+	width: 8px;
+}
+.w-box-bm {
+}
+.w-box-br {
+	width: 8px;
+}
+
+.w-box-lm {
+	width: 8px;
+}
+.w-box-rm {
+	width: 8px;
+}
+
+.w-viewer-tl {
+	width: 3px;
+}
+.w-viewer-tm {
+	cursor: move;
+}
+.w-viewer-tr {
+	width: 3px;
+}
+
+.w-viewer-bl {
+	width: 3px;
+}
+.w-viewer-bm {
+}
+.w-viewer-br {
+	width: 3px;
+}
+
+.w-viewer-lm {
+	width: 3px;
+}
+.w-viewer-rm {
+	width: 3px;
+}
+
+.w-btn-c {
+	text-align: center;
+	padding-left: 3px;
+	padding-right: 3px;
+}
+.w-btn-ok {
+	width: 75px;
+	height: 21px;
+	cursor: pointer;
+
+}
+.w-btn-ok-o {
+	width: 75px;
+	height: 21px;
+	cursor: pointer;
+}
+
+.w-btn-yes {
+	width: 75px;
+	height: 21px;
+	cursor: pointer;
+}
+.w-btn-yes-o {
+	width: 75px;
+	height: 21px;
+	cursor: pointer;
+}
+
+.w-btn-no {
+	width: 75px;
+	height: 21px;
+	cursor: pointer;
+}
+.w-btn-no-o {
+	width: 75px;
+	height: 21px;
+	cursor: pointer;
+}
+
+.w-btn-cancel {
+	width: 75px;
+	height: 21px;
+	cursor: pointer;
+}
+.w-btn-cancel-o {
+	width: 75px;
+	height: 21px;
+	cursor: pointer;
+}
+
+.w-image-info {
+	width: 32px;
+	height: 32px;
+}
+
+.w-image-ques {
+	width: 32px;
+	height: 32px;
+}
+
+.w-image-error {
+	width: 32px;
+	height: 32px;
+}
+
+.w-image-warn {
+	width: 31px;
+	height: 32px;
+}
+
+.w-picker {
+	font-size:8;
+	width:15;
+	height:10;
+	border:1px solid #808080;
+	border-top:1px solid #ffffff;
+	border-left:1px solid #ffffff;
+}
+
+.w-inform-box {
+	padding: 5px 5px 5px 5px;
+	color: #1860a8;
+	border: 1px solid #8eaccf;
+	background-color: #effaff;
+	font-family: µ¸¿ò;
+	font-size: 12px;
+}
+
+.w-inform-box .title { font-weight: bold; font-size: 13px; text-align: left; padding: 0 0 0 10px; }
+.w-inform-box .message { padding: 5px 0 0 10px; text-align: left; }

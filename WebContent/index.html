@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
+	<title>Alice v.055</title>
+	<link rel="stylesheet" type="text/css" HREF="./css/alice.css">
+	<link rel="stylesheet" type="text/css" HREF="./css/oz.css">
+	<script type="text/javascript" src="./js/prototype.js"></script>
+	<script type="text/javascript" src="./js/extprototype.js"></script>	
+	<script type="text/javascript" src="./js/oz.js"></script>	
+	<script type="text/javascript" src="./js/alice.js"></script>
+	<script type="text/javascript">
+	var alice, alice2;
+	Event.observe(window, "load", function() {
+	alice = Web.EditorManager.instance("test",{type:'detail',width:600,height:300,limit:10,family:'돋움',size:'13px'});
+	});	
+	
+	function a() {
+		// limit에 초과되면 null을 리턴
+		alert(alice.getContent());
+	}	
+	function b() {
+		alert(alice.getLogicalFile());
+	}	
+	function c() {
+		alert(alice.getPysicalFile());
+	}	
+	function d() {
+		alert(alice.getFullPhsycalFile());
+	}
+	function e() {
+		alice.setContent("<p>아하그렇구나</p>");
+	}
+	function f() {
+		alice.appendContent("<p>믿거나말거나~</p>");
+	}
+	function g() {
+		alice.disableAlice();
+	}
+	function h() {
+		alice.enableAlice();
+	}
+	function k() {
+		// 제한 넘기면 true 아니면 false
+		alert(alice.isLimit());
+	}
+	function m() {
+		alice.showAlice();
+	}
+	function p() {
+		alice.hideAlice();
+	}
+	function s() {
+		alert(alice.getContentWithLimit());
+		//글자수 걸리면 null 반환
+	}
+	</script>
+</head>
+
+<body>
+<center>
+
+<form name=testForm>
+에디터 테스트
+<br>
+
+
+<textarea name=test>
+</textarea>
+
+<br>
+<input type=button name=b1 value="에디터 내용가져오기" onclick="a()">
+<input type=button name=b1 value="에디터 내용가져오기(글자수제한)" onclick="s()"><br>
+<input type=button name=b1 value="글자수제한 걸리는지 안걸리는지" onclick="k()">
+<input type=button name=b1 value="첨부된 파일 논리 이름 가져오기" onclick="b()"><br>
+<input type=button name=b1 value="첨부된 파일 물리 이름 가져오기" onclick=c()>
+<input type=button name=b1 value="첨부된 파일 물리 풀패스 가져오기" onclick=d()><br>
+<input type=button name=b1 value="에디터 내용 설정하기" onclick=e()>
+<input type=button name=b1 value="에디터 내용 추가하기" onclick=f()><br>
+<input type=button name=b1 value="DISABLE시키기" onclick=g()>
+<input type=button name=b1 value="ENABLE시키기" onclick=h()><br>
+<input type=button name=b1 value="보이기" onclick=m()>
+<input type=button name=b1 value="안보이기" onclick=p()>
+</form>
+
+</center>
+</body>
+</html>
+

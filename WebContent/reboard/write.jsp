@@ -3,15 +3,33 @@
 <%@ include file="/commons/template/top.jsp"%>
 <%@ include file="/commons/board_common.jsp"%>
 <%@ include file="/commons/confirm.jsp"%>
+
+<link rel="stylesheet" type="text/css" href="${root}/css/alice.css">
+<link rel="stylesheet" type="text/css" href="${root}/css/oz.css">
+<script type="text/javascript" src="${root}/js/prototype.js"></script>
+<script type="text/javascript" src="${root}/js/extprototype.js"></script>	
+<script type="text/javascript" src="${root}/js/oz.js"></script>	
+<script type="text/javascript" src="${root}/js/alice.js"></script>
+
 <script type="text/javascript">
+var alice
+Event.observe(window, "load", function() {
+//	alice = Web.EditorManager.instance("editor",{type:'detail',width:600,height:300,limit:10,family:'돋움',size:'13px'});
+	alice = Web.EditorManager.instance("editor",{type:'detail',width:700,height:500,limit:30,family:'돋움',size:'13px'});
+	
+	});
 function writeArticle(){
 	if(document.writeForm.subject.value == ""){
 		alert("제목을 입력하세요");
 		return;
-	}else if(document.writeForm.content.value == ""){
+	}else if(alice.getContent() == ""){
 		alert("내용을 입력하세요");
 		return;
+		//엘리스 컨텐트 내용이 비면 내용을 입력해라 띄우기
+		//컨텐트 위에 엘리스 에디터 위에 얻친다. 그래서 에러가 난다
 	}else{
+		document.writeForm.content.value= alice.getContent();
+		//content에 alice.getContent()값을 넣어라 선언
 		document.writeForm.action = "${root}/reboard";
 		document.writeForm.submit();
 	}
@@ -52,6 +70,8 @@ function writeArticle(){
 <input type="hidden" name="pg" value="1">
 <input type="hidden" name="key" value="">
 <input type="hidden" name="word" value="">
+<input type="hidden" name="content" value="">
+
 
 <table border="0" cellpadding="5" cellspacing="0" width="630"
 	style="table-layout: fixed">
@@ -72,8 +92,8 @@ function writeArticle(){
 			colspan="5"><img src="${root}/img/board/e_dot.gif" width="4"
 			height="4" border="0" align="absmiddle"> 
 			
-			<b>글내용</b> <textarea
-			name="content" class="inp_02" cols="67" rows="25" scrollbars="no"></textarea>
+			<b>글내용</b> 
+			<textarea name="editor" ></textarea>
 		</td>
 	</tr>
 </table>
