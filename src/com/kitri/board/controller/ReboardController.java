@@ -76,9 +76,11 @@ public class ReboardController extends HttpServlet {
 				PageMove.forward(request, response, path);
 			
 			
-			}else if("".equals(act)) {
-				
-				
+			}else if("replyarticle".equals(act)) {
+				path = BoardActionFactory.getReboardReplyAction().execute(request, response);
+				path += queryString;
+				PageMove.redirect(request, response, path);
+				//wartiarticle Âü°í
 			} else if("".equals(act)) {
 				
 			} else if("".equals(act)) {

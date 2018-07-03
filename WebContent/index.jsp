@@ -13,3 +13,8 @@ session.setAttribute("userInfo", memberDto);
 
 response.sendRedirect(root + "/boardadmin?act=boardmenu");
 %>    
+
+<!-- 
+1번
+DB >> 레벨 / 스텝 보고
+대부분 문제는 DB에 넣을떄 문제 -->

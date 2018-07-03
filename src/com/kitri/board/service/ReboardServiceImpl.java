@@ -26,12 +26,18 @@ public class ReboardServiceImpl implements ReboardService {
 		int seq = CommonDaoImpl.getCommonDao().getNextSeq();
 		reboardDto.setSeq(seq);
 		reboardDto.setRef(seq);
+		//새글이면 seq 값음
 		return ReboardDaoImpl.getReboardDao().writeArticle(reboardDto) == 0 ? 0 : seq;
 	}
 
 	@Override
 	public int replyArticle(ReboardDto reboardDto) {
-		return 0;
+		//답글
+		int seq = CommonDaoImpl.getCommonDao().getNextSeq(); //글번호 얻어오기
+		reboardDto.setSeq(seq);
+		//ref를 빼는 이유는 원글의 seq를 이용해서 무언가를 할려고
+	
+		return ReboardDaoImpl.getReboardDao().replyArticle(reboardDto) == 0 ? 0 : seq;
 	}
 
 	@Override

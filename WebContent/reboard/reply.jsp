@@ -3,6 +3,20 @@
 <%@ include file="/commons/template/top.jsp"%>
 <%@ include file="/commons/board_common.jsp"%>
 <%@ include file="/commons/confirm.jsp"%>
+<script type="text/javascript">
+function writeArticle(){
+	if(document.writeForm.subject.value == ""){
+		alert("제목을 입력하세요");
+		return;
+	}else if(document.writeForm.content.value == ""){
+		alert("내용을 입력하세요");
+		return;
+	}else{
+		document.writeForm.action = "${root}/reboard";
+		document.writeForm.submit();
+	}
+}
+</script>
 <!-- title -->
 <table width="100%" cellpadding="0" cellspacing="0" border="0">
 	<tr>
@@ -30,11 +44,26 @@
 </table>
 <br>
 
-<form id="writeForm" name="writeForm" method="post" action=""
-	style="margin: 0px">
+<form id="writeForm" name="writeForm" method="post" action="" style="margin: 0px">
 <div id="attach_file_hdn"></div>
 
-<input type="hidden" name="" value="">
+<input type="hidden" name="act" value="replyarticle">
+<input type="hidden" name="bcode" value="${bcode}">
+<input type="hidden" name="pg" value="1">
+<input type="hidden" name="key" value="">
+<input type="hidden" name="word" value="">
+
+<input type="hidden" name="ref" value="${article.ref }">
+<input type="hidden" name="lev" value="${article.lev }">
+<input type="hidden" name="step" value="${article.step }">
+<!-- 원글의 원글 -->
+<input type="hidden" name="pseq" value="${article.seq}">
+
+<!-- 원글의 ref, lev, setp, pseq >> articl.seq(원글의 글번호) pseq는 0이다. 그래서 원글의 원글을 넣어야 한다. -->
+
+<!-- 내가 검색 / pg / key word 가져가면 됨 -->
+<!-- 업데이트시 필요한거 > 원글의 스탭, 원글의 seq -->
+<!-- 인설트시 필요한거 > 원글의 글번호 -->
 
 <table border="0" cellpadding="5" cellspacing="0" width="630"
 	style="table-layout: fixed">

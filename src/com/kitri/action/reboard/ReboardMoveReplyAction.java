@@ -13,14 +13,13 @@ import com.kitri.board.service.ReboardServiceImpl;
 public class ReboardMoveReplyAction implements Action{
 
 	
-    private static ReboardMoveReplyAction reboardMoveReplyAction;
-	
+	private static ReboardMoveReplyAction reboardMoveReplyAction;
+
 	static {
 		reboardMoveReplyAction = new ReboardMoveReplyAction();
 	}
 	
 	private ReboardMoveReplyAction() {}
-
 	
 	public static ReboardMoveReplyAction getReboardMoveReplyAction() {
 		return reboardMoveReplyAction;

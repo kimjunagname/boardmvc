@@ -56,9 +56,84 @@ public class ReboardDaoImpl implements ReboardDao {
 		return cnt;
 	}
 
+	//답변 >> writeArticle거와 비슷하다.
 	@Override
 	public int replyArticle(ReboardDto reboardDto) {
-		return 0;
+		int cnt = 0;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		try {
+			//메소드 빼면 하나하나 conn 실행해야 한다.(트랜젝션 을 관리 못한다)
+			conn = DBConnection.makeConnection();
+			conn.setAutoCommit(false);
+			
+			StringBuffer update_step = new StringBuffer();
+			update_step.append(" update reboard \n ");
+			update_step.append(" set step = step + 1 \n ");
+			update_step.append(" where ref = ? and step > ? ");
+			//원글의 스텝보다 큰얘들을 1씩 증가 식
+			pstmt = conn.prepareStatement(update_step.toString());
+			pstmt.setInt(1, reboardDto.getRef()); //원글의 ref
+			pstmt.setInt(2, reboardDto.getStep()); //원글의 스탭
+			pstmt.executeUpdate();
+			pstmt.close();
+			//conn닫으면 안됨
+			
+			
+			StringBuffer insert_reply = new StringBuffer();
+			insert_reply.append("insert all \n");
+			insert_reply.append("	into board (seq, name, id, email, subject, content, hit, logtime, bcode) \n");
+			insert_reply.append("	values (?, ?, ?, ?, ?, ?, 0, sysdate, ?) \n");
+			insert_reply.append("	into reboard (rseq,               seq, ref, lev, step, pseq, reply) \n");
+			insert_reply.append("	values       (reboard_rseq.nextval, ?,   ?,   ?,    ?,    ?,     0) \n");
+			insert_reply.append("select * from dual ");
+			//0은 답글의 갯수 라서 일딴 0임
+			
+//			System.out.println(sql);
+			
+			pstmt = conn.prepareStatement(insert_reply.toString());
+			int idx = 0;
+			pstmt.setInt(++idx, reboardDto.getSeq()); //글번호
+			pstmt.setString(++idx, reboardDto.getName()); //이름
+			pstmt.setString(++idx, reboardDto.getId()); //아이디
+			pstmt.setString(++idx, reboardDto.getEmail()); //이메일
+			pstmt.setString(++idx, reboardDto.getSubject()); //제목
+			pstmt.setString(++idx, reboardDto.getContent()); //내용
+			pstmt.setInt(++idx, reboardDto.getBcode()); //보드 이름
+			pstmt.setInt(++idx, reboardDto.getSeq()); //원글의 
+			pstmt.setInt(++idx, reboardDto.getRef()); //
+			
+			pstmt.setInt(++idx, reboardDto.getLev() + 1);//원글의 lev보다 1커야 한다(리보드트 디티오는 원글의 스텝만 가지고 있다)
+			pstmt.setInt(++idx, reboardDto.getStep() + 1);//원글보다 step 1이 커야 한다.(정렬순서)
+			pstmt.setInt(++idx, reboardDto.getPseq()); //
+			pstmt.executeUpdate();
+//			cnt = pstmt.executeUpdate();
+			pstmt.close();
+			
+			StringBuffer update_reply = new StringBuffer();
+			update_reply.append(" update reboard \n");
+			update_reply.append(" set reply = reply + 1 \n");
+			update_reply.append(" where seq = ? ");
+			pstmt = conn.prepareStatement(update_reply.toString());
+			pstmt.setInt(1, reboardDto.getPseq()); //글번호 seq  = 원글의 답글번호 pseq 
+			pstmt.executeUpdate();
+			//colose 할필요 없다
+			
+			conn.commit();
+			cnt = 1; //0이상없이 dao가 실행되었을때 cnt 1로 줌
+		} catch (SQLException e) {
+			e.printStackTrace();
+			try {
+				conn.rollback();
+				cnt = 0;
+				//cnt = 0이면, 글작성 실패임
+			} catch (SQLException e1) {
+				e1.printStackTrace();
+			}
+		} finally {
+			DBClose.close(conn, pstmt);
+		}
+		return cnt;
 	}
 
 	@Override
@@ -93,7 +168,8 @@ public class ReboardDaoImpl implements ReboardDao {
 					sql.append("		and b." + key + " = ? \n");
 				}
 			}
-			sql.append("		order by seq desc \n");
+			//sql.append("		order by seq desc \n"); //list 정렬 기준
+			sql.append("		order by ref desc, step \n"); //답변형 게시판
 			sql.append("		) a \n");
 			sql.append("	where rownum <= ? \n");
 			sql.append("	) b \n");

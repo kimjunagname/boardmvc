@@ -141,7 +141,9 @@ function viewArticle(seq) {
      
      </td-->
 		<td style="word-break: break-all;"><a href="javascript:viewArticle('${article.seq}');"
-			class="link_board_03">${article.subject}&nbsp;&nbsp;&nbsp;</a></td>
+			class="link_board_03">
+			<img src="${root }/img/board/blank.gif" width="${article.lev * 10 }" height="1">
+			${article.subject}&nbsp;&nbsp;&nbsp;</a></td>
 		<td></td>
 		<td style="word-break: break-all;"><a href="javascript:;"
 			onClick="showSideView();" class="link_board_04">${article.name}</a></td>
