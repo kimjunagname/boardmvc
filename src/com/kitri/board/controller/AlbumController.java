@@ -7,7 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.kitri.util.KitriConstance;
+import com.kitri.factory.BoardActionFactory;
+import com.kitri.util.*;
 
 @WebServlet("/album")
 public class AlbumController extends HttpServlet {
@@ -15,17 +16,34 @@ public class AlbumController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String act = request.getParameter("act");
+		int bcode = ParameterCheck.naNToZero(request.getParameter("bcode"));
+		int pg = ParameterCheck.naNToOne(request.getParameter("pg"));
+		String key = ParameterCheck.nullToBlank(request.getParameter("key"));
+		String word = ParameterCheck.nullToBlank(request.getParameter("word"));
+		String queryString = "bcode=" + bcode + "&pg=" + pg + "&key=" + key + "&word=" + Encoder.urlUtf(word);
+		System.out.println(queryString);
 		
-		if("".equals(act)) {
-			
-		} else if("".equals(act)) {
-			
-		} else if("".equals(act)) {
-			
-		} else if("".equals(act)) {
-			
-		} else if("".equals(act)) {
-			
+		String path = "/index.jsp";
+		if(bcode == 0) {
+			System.out.println("전체 목록 가라...");
+			PageMove.redirect(request, response, path);
+		} else {		
+			if("mvwrite".equals(act)) {
+				path = "/album/write.jsp?" + queryString;
+				PageMove.redirect(request, response, path);
+			} else if("".equals(act)) {
+				
+			} else if("".equals(act)) {
+				
+			} else if("".equals(act)) {
+				
+			} else if("".equals(act)) {
+				
+			} else if("".equals(act)) {
+				
+			} else if("".equals(act)) {
+				
+			}
 		}
 	}
 

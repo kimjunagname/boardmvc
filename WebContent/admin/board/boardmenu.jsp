@@ -48,9 +48,13 @@ $(document).ready(function() {
 	<c:set var="idx" value="${board.ccode}"/>
 	<div class="menu_body">
 	</c:if>	
-	<a href="${root}/${board.control}?act=listarticle&bcode=${board.bcode}&pg=1&key=&word=">
+	<!-- <a href="${root}/${board.control}?act=listarticle&bcode=${board.bcode}&pg=1&key=&word=">
+	${board.bname}
+	</a> -->
+	<a href="${root}/${board.control}?act=mvwrite&bcode=${board.bcode}&pg=1&key=&word=">
 	${board.bname}
 	</a>
+	
 	<c:if test="${i.index < menulist.size() - 1}">
 		<c:if test="${menulist.get(i.index + 1).ccode != idx}">
 	</div>

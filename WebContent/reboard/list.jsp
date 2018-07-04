@@ -89,13 +89,12 @@ function viewArticle(seq) {
 <!-- bbs start -->
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
 	<tr valign="bottom">
-		<td nowrap><a href="javascript:moveWrite();"><img
-			src="${root}/img/board/btn_write_01.gif" width="64" height="22"
-			border="0" align="absmiddle" alt="글쓰기"></a></td>
+		<td nowrap><a href="javascript:moveWrite();">
+		<img src="${root}/img/board/btn_write_01.gif" width="64" height="22" border="0" align="absmiddle" alt="글쓰기"></a></td>
 
-		<td width="100%" style="padding-left: 6px" valign="bottom">새글 <b><font
-			class="text_acc_02">${navigator.newArticleCount}</font></b> / 전체 <font
-			class="text_acc_02">${navigator.totalArticleCount}</font></td>
+		<td width="100%" style="padding-left: 6px" valign="bottom">
+		새글 <b> <font class="text_acc_02">${navigator.newArticleCount}</font></b> 
+		/ 전체 <font class="text_acc_02">${navigator.totalArticleCount}</font></td>
 		<td width="300" nowrap>
 		<div align="right"></div>
 		</td>
@@ -108,8 +107,7 @@ function viewArticle(seq) {
 <form name="listForm" method="post" style="margin: 0px">
 <table width="100%" cellpadding="5" cellspacing="0" border="0">
 	<tr>
-		<td class="bg_board_title_02" height="2" colspan="11"
-			style="overflow: hidden; padding: 0px"></td>
+		<td class="bg_board_title_02" height="2" colspan="11"style="overflow: hidden; padding: 0px"></td>
 	</tr>
 	<tr class="bg_board_title" align="center" height="28">
 		<td nowrap><b>번호</b></td>
@@ -140,13 +138,13 @@ function viewArticle(seq) {
 		<!--td>
      
      </td-->
-		<td style="word-break: break-all;"><a href="javascript:viewArticle('${article.seq}');"
-			class="link_board_03">
+		<td style="word-break: break-all;">
+			<a href="javascript:viewArticle('${article.seq}');" class="link_board_03">
 			<img src="${root }/img/board/blank.gif" width="${article.lev * 10 }" height="1">
 			${article.subject}&nbsp;&nbsp;&nbsp;</a></td>
 		<td></td>
-		<td style="word-break: break-all;"><a href="javascript:;"
-			onClick="showSideView();" class="link_board_04">${article.name}</a></td>
+		<td style="word-break: break-all;">
+		<a href="javascript:;"onClick="showSideView();" class="link_board_04">${article.name}</a></td>
 		<td></td>
 		<td align="center" class="text_gray">${article.hit}</td>
 		<td></td>
@@ -154,8 +152,7 @@ function viewArticle(seq) {
 	</tr>
 
 	<tr>
-		<td bgcolor="#ededed" height="1" colspan="11"
-			style="overflow: hidden; padding: 0px"></td>
+		<td bgcolor="#ededed" height="1" colspan="11" style="overflow: hidden; padding: 0px"></td>
 	</tr>
 </c:forEach>
 
@@ -173,12 +170,10 @@ function viewArticle(seq) {
 		<td colspan="3" height="5"></td>
 	</tr>
 	<tr valign="top">
-		<td nowrap><a href="javascript:moveWrite();"><img
-			src="${root}/img/board/btn_write_01.gif" width="64" height="22"
-			border="0" align="absmiddle" alt="글쓰기"></a></td>
+		<td nowrap><a href="javascript:moveWrite();">
+		<img src="${root}/img/board/btn_write_01.gif" width="64" height="22" border="0" align="absmiddle" alt="글쓰기"></a></td>
 		<td width="100%" align="center"><!--PAGE-->${navigator.navigator}</td>
-		<td nowrap class="stext"><b>${navigator.pageNo}</b> / ${navigator.totalPageCount}
-		pages</td>
+		<td nowrap class="stext"><b>${navigator.pageNo}</b> / ${navigator.totalPageCount} pages</td>
 	</tr>
 </table>
 <br>
@@ -197,21 +192,17 @@ function viewArticle(seq) {
 				<option value="name">글쓴이
 				<option value="seq">글번호
 			</select> 
-			<span id="sear1"><input type="text" name="word" id="sword" size="22"
-			class="inp" style="margin-top: -19px;"></span> 
-			<a href="javascript:goBbsSearch();"><img
-			src="${root}/img/board/sbtn_s.gif" width="32" height="18"
-			border="0" align="absmiddle" alt="검색"></a> 
+			<span id="sear1"><input type="text" name="word" id="sword" size="22" class="inp" style="margin-top: -19px;"></span> 
+			<a href="javascript:goBbsSearch();">
+			<img src="${root}/img/board/sbtn_s.gif" width="32" height="18" border="0" align="absmiddle" alt="검색"></a> 
 		<c:if test="${userInfo != null}">
-			<a href="javascript:goMyList('${userInfo.id}')"><img
-			src="${root}/img/board/sbtn_mytext.gif" width="82" height="20"
-			align="absmiddle" alt="내가 쓴 글 보기"></a>
+			<a href="javascript:goMyList('${userInfo.id}')">
+			<img src="${root}/img/board/sbtn_mytext.gif" width="82" height="20" align="absmiddle" alt="내가 쓴 글 보기"></a>
 		</c:if>	
 			<br>
 		</td>
-		<td width="50%" align="right"><a href="#"><img
-			src="${root}/img/board/sbtn_top.gif" width="24" height="11"
-			align="absmiddle" alt="TOP"></a><br>
+		<td width="50%" align="right"><a href="#">
+		<img src="${root}/img/board/sbtn_top.gif" width="24" height="11" align="absmiddle" alt="TOP"></a><br>
 		</td>
 	</tr>
 </table>
